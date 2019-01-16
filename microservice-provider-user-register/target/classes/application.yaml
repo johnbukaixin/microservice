@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: microservice-provider-user-register
+  datasource:
+    schema: classpath:schema.sql
+    data: classpath:data.sql
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/microuser?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF-8
+    username: root
+    password: root
+  jpa:
+    generate-ddl: false
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    database: mysql
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5Dialect
+logging:
+  level:
+    root:INFO
+    org.hibernate:INFO
+    org.hibernate.type.descripter.sql.BasicBinder:TRACE
+    org.hibernate.type.descripter.sql.BasicExtractor:TRACE
+eureka:
+  client:
+    service-url:
+      default-zone: http://localhost:8761/eureka/
+  instance:
+    prefer-ip-address: true
+    metadata-map:
+      my-metadata: 自定义元数据
+server:
+  port: 8083
+#    prefer-ip-address:表示将自己的ip注册到EurekaServer上面。
+#    name:表示指定注册到Eureka Server上的应用名称。

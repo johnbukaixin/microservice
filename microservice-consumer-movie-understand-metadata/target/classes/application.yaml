@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: microservice-comsumer-movie
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+#    http://user:password@localhost:8761/eureka 对于需要认证的eurekaServer这么链接
+      default-zone: http://peer1:8761/eureka
+server:
+  port: 8081
